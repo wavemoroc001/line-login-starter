@@ -37,8 +37,8 @@
               <button type="button" id="refreshToken" class="btn btn-success btn-lg btn-block profile-button">refreshToken</button>
               <button type="button" id="revoke" class="btn btn-success btn-lg btn-block profile-button">revoke</button>
               <form method="post" action="https://notify.wavemoroc.app/api/v1/line/pushMsg">
-                  <input type="hidden" id="userId" name="userId" th:value="${idToken.sub}">
-                  <input type="text" id="msg" name="msg" placeholder="test msg">
+                  <input type="hidden" id="userId" name="userId" th:value="${idToken.sub}"/>
+                  <input type="text" id="msg" name="msg" placeholder="test msg"/>
                   <button type="submit">test msg</button>
               </form>
             </div>
