@@ -30,16 +30,17 @@
     async function pushMsg() {
         let userId = document.getElementById("userId");
         let msg = document.getElementById("msg");
-        let data = new FormData();
-        data.append("userId",userId);
-        data.append('msg',msg);
+
         let url = 'https://notify.wavemoroc.app/api/v1/line/pushMsg';
         let result = await fetch(url,{
             method : 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body : JSON.parse(data)
+            body : querystring.stringify({
+                'userId' : userId,
+                'msg' : msg
+            })
         })
 
         await console.log(result);
