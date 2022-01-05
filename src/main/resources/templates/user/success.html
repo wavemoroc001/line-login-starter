@@ -28,8 +28,15 @@
 <body>
 <script>
     async function pushMsg() {
+        const querystring = require('querystring');
+
         let userId = document.getElementById("userId");
         let msg = document.getElementById("msg");
+
+        const  data = querystring.stringify({
+            'userId' : userId,
+            'msg' : msg
+        });
 
         let url = 'https://notify.wavemoroc.app/api/v1/line/pushMsg';
         let result = await fetch(url,{
@@ -37,10 +44,7 @@
             headers: {
                 'Content-Type': 'application/json'
             },
-            body : querystring.stringify({
-                'userId' : userId,
-                'msg' : msg
-            })
+            body : data
         })
 
         await console.log(result);
